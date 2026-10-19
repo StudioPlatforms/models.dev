@@ -1,0 +1,23 @@
+# Routing mode, not a fixed model: the router picks a model per request. No [cost]: requests
+# are billed by the chosen model's provider to the caller's own key (BYOK). [limit] is the
+# smallest context/output among the models the router can choose (Kimi K2.7 Code context,
+# Gemini Flash output), so it holds whichever model is picked.
+name = "Auto (account strategy)"
+description = "Routes with the strategy saved on the account's routing preferences"
+family = "auto"
+release_date = "2025-10-09"
+last_updated = "2025-10-09"
+attachment = false
+reasoning = false
+temperature = true
+tool_call = true
+structured_output = true
+open_weights = false
+
+[limit]
+context = 262_144
+output = 65_536
+
+[modalities]
+input = ["text"]
+output = ["text"]
