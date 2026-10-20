@@ -1,7 +1,10 @@
 # Routing mode, not a fixed model: the router picks a model per request. No [cost]: requests
 # are billed by the chosen model's provider to the caller's own key (BYOK). [limit] is the
 # smallest context/output among the models the router can choose (Kimi K2.7 Code context,
-# Gemini Flash output), so it holds whichever model is picked.
+# Claude Sonnet 4.6 output), so it holds whichever model is picked.
+# Sources (accessed 2026-10-20): https://aistupidlevel.info/router/docs#strategies (routing
+# modes), https://aistupidlevel.info/router/docs#features (text only, tools, JSON output),
+# https://aistupidlevel.info/terms#router (BYOK billing)
 name = "Auto Value Reasoning"
 description = "Routes to the model with the most reasoning points per measured dollar, among models within 5 points of the best"
 family = "auto"
@@ -16,7 +19,7 @@ open_weights = false
 
 [limit]
 context = 262_144
-output = 65_536
+output = 64_000
 
 [modalities]
 input = ["text"]
